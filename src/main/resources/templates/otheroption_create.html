@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Создание дополнительных опций: </h1>
+    </br>
+    <form th:action="@{/otherOption/create}" th:method="post" th:object="${otherOption}">
+        <label for="name">Название опции: </label>
+        <input id="name" th:field="*{name}" type="text">
+        <br/>
+        <label for="description">Описание: </label>
+        <input id="description" th:field="*{description}" type="text">
+        <br/>
+        <label for="price">Цена:</label>
+        <input id="price" th:field="*{price}" type="text">
+        <br/>
+        <input type="submit" value="Сохранить комплектацию!"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>403</title>
+    <link rel="stylesheet" th:href="@{/css/security_error.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>ДОСТУП</div>
+    <div class="txt">
+        ЗАПРЕЩЁН<span class="blink">_</span>
+    </div>
+    <br>
+    <br>
+    <div class="txt">
+        ВЕРНУТЬСЯ
+        <a th:href="@{/cars/}">
+            ДОМОЙ
+        </a>
+    </div>
+</div>
+</body>
+</html>

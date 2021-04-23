@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Other Options List</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<form th:action="@{/otherOption/delete/{id}(id=${otherOption.getId()})}" th:each="otherOption : ${otherOptions}"
+      th:method="POST">
+    <label for="ID">ID: </label>
+    <li id="ID" th:utext="${otherOption.id}"></li>
+    <br/>
+    <label for="name">Название опции: </label>
+    <li id="name" th:utext="${otherOption.name}"></li>
+    <p>***************</p>
+    <label for="description">Описание: </label>
+    <li id="description" th:utext="${otherOption.description}"></li>
+    <p>***************</p>
+    <label for="price">Цена: </label>
+    <li id="price" th:utext="${otherOption.price}"></li>
+    <br/>
+    <b><a th:href="@{/otherOption/update/{id}(id=${otherOption.getId()})}">Изменить опцию</a></b>
+    <br/><br/>
+    <input type="submit" value="Удалить опцию!">
+    <p>-------------------------------------------------------</p>
+</form>
+</body>
+</html>

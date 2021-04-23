@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars List</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<h1>Список готовых сборок автомобилей: </h1>
+</br>
+<form th:action="@{/cars/delete/{id}(id=${car.getId()})}" th:each="car : ${cars}" th:method="POST">
+    <label for="id">Номер:</label>
+    <div id="id" th:utext="${car.getId()}"></div>
+    <br>
+    <label for="id">Марка:</label>
+    <div id="brand" th:utext="${car.getBrand()}"></div>
+    <br>
+    <label for="description_e">Двигатель:</label>
+    <div id="description_e" th:utext="${car.getEngine().getDescription()}">...</div>
+    <br>
+    <label for="description_t">Трансмиссия:</label>
+    <div id="description_t" th:utext="${car.getTransmission().getDescription()}">...</div>
+    <br>
+    <label for="description_w">Колёса:</label>
+    <div id="description_w" th:utext="${car.getWheels().getDescription()}">...</div>
+    <br>
+    <label for="description_o">Доп. опции:</label>
+    <div id="description_o" th:utext="${car.getOtherOptions().get(0).getDescription()}">...</div>
+    <br>
+    <input type="submit" value="Удалить комплектацию">
+    <br>
+    <a th:href="@{/cars/edit/{id}(id=${car.getId()})}">Изменить комплектацию</a>
+    <br>
+    <p>----------------------------------------------------------------------</p>
+</form>
+</body>
+</html>

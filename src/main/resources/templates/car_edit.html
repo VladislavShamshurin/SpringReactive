@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Edit</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Изменение сборки автомобиля: </h1>
+    </br>
+    <form th:action="@{/cars/update/{id}(id=${car.getId()})}" th:method="POST" th:object="${car}">
+        <label for="brand">Марка:</label>
+        <input id="brand" th:field="*{brand}" type="text">
+        <br>
+        <label for="wheels">Колёса:</label>
+        <select id="wheels" th:field="*{wheelsId}">
+            <option th:each="wh : ${wheelsModel}" th:text="${wh.description}" th:value="${wh.id}"></option>
+        </select>
+        <br>
+        <label for="transmission">Трансмиссия:</label>
+        <select id="transmission" th:field="*{transmissionId}">
+            <option th:each="trans : ${transmissionsModel}" th:text="${trans.description}"
+                    th:value="${trans.id}"></option>
+        </select>
+        <br>
+        <label for="engine">Двигатель:</label>
+        <select id="engine" th:field="*{engineId}">
+            <option th:each="eng : ${enginesModel}" th:text="${eng.description}" th:value="${eng.id}"></option>
+        </select>
+        <br>
+        <tr th:each="model : ${otherOptionModel}">
+            <label for="otherOption">Доп. компоненты:</label>
+            <select id="otherOption" th:field="*{otherOptionId}">
+                <option th:each="oom : ${otherOptionModel}" th:text="${oom.description}" th:value="${oom.id}"></option>
+            </select>
+            <br>
+        </tr>
+        </br>
+        <input type="submit" value="Обновить комплектацию!"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <form method="post" name="f" th:action="@{/perform-login}">
+        <fieldset>
+            <legend>Войдите</legend>
+            </br>
+            <div class="alert alert-error" th:if="${param.error}">
+                Неправильные имя и пароль.
+            </div>
+            <div class="alert alert-success" th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <label for="user">Имя</label>
+            <input id="user" name="user" type="text"/>
+            <label for="pass">Пароль</label>
+            <input id="pass" name="pass" type="password"/>
+            <div class="form-actions">
+                </br>
+                <button class="btn" type="submit">Войти</button>
+            </div>
+        </fieldset>
+    </form>
+    <a th:href="@{/register}">Зарегистрироваться</a>
+</div>
+</body>
+</html>

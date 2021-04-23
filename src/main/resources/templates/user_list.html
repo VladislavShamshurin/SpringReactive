@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+</tr>
+<tr th:each="user : ${users}">
+    <td th:utext="${user.getId()}"></td>
+    <br>
+    <td th:utext="${user.getName()}"></td>
+    <br>
+    <td th:utext="${user.getEmail()}">...</td>
+    <br>
+    <td th:utext="${user.getPhone()}">...</td>
+    <br>
+    <p>----------------------------------------------------------------------</p>
+</tr>
+</body>
+</html>

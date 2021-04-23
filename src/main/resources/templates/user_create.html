@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Регистрация пользователя: </h1>
+    </br>
+    <form th:action="@{/users/create/{id}(id=${user.getId()})}" th:method="POST" th:object="${user}">
+        <label for="name">Имя:</label>
+        <input id="name" th:field="*{name}" type="text">
+        <br>
+        <label for="email">Емайл:</label>
+        <input id="email" th:field="*{email}" type="text">
+        <br>
+        <label for="phone">Телефон:</label>
+        <input id="phone" th:field="*{phone}" type="text">
+        <br>
+        <input type="submit" value="Зарегистрировать пользователя"/>
+    </form>
+</div>
+</body>
+</html>

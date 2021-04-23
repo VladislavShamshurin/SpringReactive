@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wheels Create</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Создание новых колёс: </h1>
+    </br>
+    <form th:action="@{/wheels/create}" th:method="post" th:object="${wheels}">
+        <label for="description">Описание:</label>
+        <input id="description" th:field="*{description}" type="text">
+        <br/>
+        <label for="price">Цена:</label>
+        <input id="price" th:field="*{price}" type="text">
+        <br/>
+        <label for="radius">Радиус колеса:</label>
+        <input id="radius" th:field="*{radius}" type="text">
+        <br/>
+        <input type="submit" value="Сохранить колесо!"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ панель</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet"
+          th:href="@{/css/admin_panel.css}">
+    <link href='https://cdn.jsdelivr.net/gh/alphardex/aqua.css/dist/aqua.min.css' rel='stylesheet'>
+    <link
+            rel="stylesheet" th:href="@{/css/admin_panel.css}">
+</head>
+<body>
+<div id="app">
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" th:href="@{/engine/create}">Двигатели</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/wheels/create}">Колёса</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/transmission/create}">Трансмиссия</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/otherOption/create}">Доп. опции</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/cars/list}">Готовые сборки</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/users/list}">Пользователи</a></li>
+    </ul>
+</div>
+</body>
+</html>

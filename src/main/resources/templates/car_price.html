@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<label for="price">Общая цена: </label>
+<p id="price" th:utext="${price}"></p>
+<a href="#" onclick="history.back();return false;">Вернуться назад</a>
+</body>
+</html>

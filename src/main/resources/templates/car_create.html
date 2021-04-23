@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Создание сборки автомобиля: </h1>
+    </br>
+    <form th:action="@{/cars/create_car}" th:method="post" th:object="${car}">
+        <label for="brand">Марка:</label>
+        <input id="brand" th:field="*{brand}" type="text">
+        <br>
+        <label for="number">Номер машины:</label>
+        <input id="number" th:field="*{id}" type="text">
+        <br>
+        <label for="wheels">Колёса:</label>
+        <select id="wheels" th:field="*{wheelsId}">
+            <option th:each="wh : ${wheelsModel}" th:text="${wh.description}" th:value="${wh.getId()}"></option>
+        </select>
+        <br>
+        <label for="transmission">Трансмиссия:</label>
+        <select id="transmission" th:field="*{transmissionId}">
+            <option th:each="trans : ${transmissionsModel}" th:text="${trans.description}"
+                    th:value="${trans.getId()}"></option>
+        </select>
+        <br>
+        <label for="engine">Двигатель:</label>
+        <select id="engine" th:field="*{engineId}">
+            <option th:each="eng : ${enginesModel}" th:text="${eng.description}" th:value="${eng.getId()}"></option>
+        </select>
+        <br>
+        <p th:each="model : ${otherOptionModel}">
+            <label for="otherOption">Доп. компоненты:</label>
+            <select id="otherOption" th:field="*{otherOptionId}">
+                <option th:each="oom : ${otherOptionModel}" th:text="${oom.description}"
+                        th:value="${oom.getId()}"></option>
+            </select>
+            <br>
+        </p>
+        <input type="submit" value="Купить!">
+        <!--    <input th:formaction="@{/cars/price}" type="submit" value="Расчитать цену!"/>-->
+    </form>
+</div>
+</body>
+</html>

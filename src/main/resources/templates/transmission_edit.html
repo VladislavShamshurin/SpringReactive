@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Transmission</title>
+    <link rel="stylesheet" th:href="@{/css/main_style.css}"/>
+</head>
+<body>
+<div class="center">
+    <h1>Редактирование созданной трансмиссии: </h1>
+    </br>
+    <form th:action="@{/transmission/update/{id}(id=${transmission.getId()})}" th:method="POST"
+          th:object="${transmission}">
+        <label for="description">Описание:</label>
+        <input id="description" th:field="*{description}" type="text">
+        <br/>
+        <label for="price">Цена:</label>
+        <input id="price" th:field="*{price}" type="text">
+        <br/>
+        <input type="submit" value="Обновить двигатель!"/>
+    </form>
+</div>
+</body>
+</html>
